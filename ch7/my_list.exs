@@ -9,11 +9,12 @@ defmodule MyList do
     _mapsum(tail, func, sum + func.(head))
   end
 
-  def max([head | tail]), do: _max([head | tail], 0)
+  def max([]), do: nil
+  def max([head | tail]), do: _max(head, tail)
 
-  defp _max([], max), do: max
-  defp _max([head | tail], current_max) when current_max > head do
-    _max(tail, current_max)
+  defp _max(max, []), do: max
+  defp _max(max, [head | tail]) when max > head do
+    _max(max, tail)
   end
-  defp _max([head | tail], _current_max), do: _max(tail, head)
+  defp _max(_max, [head | tail]), do: _max(head, tail)
 end
