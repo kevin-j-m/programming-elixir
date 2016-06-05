@@ -8,15 +8,15 @@ defmodule Chop do
     check(n, guess, a..b)
   end
 
-  def check(actual, guess, _low.._high)
+  defp check(actual, guess, _low.._high)
     when actual == guess,
     do: IO.puts "#{actual}"
 
-  def check(actual, guess, _low..high)
+  defp check(actual, guess, _low..high)
     when actual > guess,
     do: guess(actual, (guess + 1)..high)
 
-  def check(actual, guess, low.._high)
+  defp check(actual, guess, low.._high)
     when actual < guess,
     do: guess(actual, low..(guess - 1))
 end
