@@ -26,4 +26,9 @@ defmodule MyList do
   def caesar([head | tail], n) do
     [head + n, caesar(tail, n)]
   end
+
+  def span(from, to) when from == to, do: [from]
+  def span(from, to) do
+    [from | span(from + 1, to)]
+  end
 end
