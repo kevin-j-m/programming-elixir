@@ -1,5 +1,5 @@
 defmodule Chop do
-  def guess(n, a..b) do
+  def guess(n, a..b) when n in a..b do
     diff = b - a
     guess = div(diff, 2) + a
 
