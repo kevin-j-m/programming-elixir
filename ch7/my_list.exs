@@ -17,4 +17,13 @@ defmodule MyList do
     _max(max, tail)
   end
   defp _max(_max, [head | tail]), do: _max(head, tail)
+
+  def caesar([], _n), do: []
+  def caesar([head | tail], n) when (head + n) > 122 do
+    [(122 - 26) + head + n - 122, caesar(tail, n)]
+  end
+
+  def caesar([head | tail], n) do
+    [head + n, caesar(tail, n)]
+  end
 end
