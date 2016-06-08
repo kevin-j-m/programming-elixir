@@ -14,12 +14,12 @@ defmodule MyEnum do
     [function.(head) | each(tail, function)]
   end
 
-  def filter([], function), do: []
+  def filter([], _), do: []
   def filter([head | tail], function) do
     if function.(head) do
-      [head | filter(tail, function)]
+      [head] ++ filter(tail, function)
     else
-      [filter(tail, function)]
+      filter(tail, function)
     end
   end
 
