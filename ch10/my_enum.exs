@@ -30,4 +30,12 @@ defmodule MyEnum do
   def take([head | tail], n) do
 
   end
+
+  def flatten([]), do: []
+  def flatten([head | tail]) do
+    flatten(head) ++ flatten(tail)
+  end
+  def flatten(element) do
+    [element]
+  end
 end
